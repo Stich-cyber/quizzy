@@ -1,0 +1,181 @@
+:root {
+  --dock-bg-light: var(--bg-color);
+  --dock-border-light: var(--border-color);
+  --dock-shadow-light: var(--shadow-color);
+  --dock-text-light: var(--text-color);
+
+  --dock-bg-dark: var(--bg-color);
+  --dock-border-dark: var(--border-color);
+  --dock-shadow-dark: var(--shadow-color);
+  --dock-text-dark: var(--text-color);
+}
+.dock-panel {
+  position: absolute;
+  bottom: 0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: flex-end;
+  width: fit-content;
+  gap: 1rem;
+  border-radius: 1rem;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  padding: 0 0.5rem 0.5rem;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.dock-item {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.dock-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.dock-label {
+  position: absolute;
+  top: -1.5rem;
+  left: 50%;
+  width: fit-content;
+  white-space: pre;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-color);
+  background-color: var(--bg-color);
+  padding: 0.125rem 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-color);
+  transform: translateX(-50%);
+  transition: background-color 0.3s ease, border-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* Dark mode styles */
+.dock-panel.dark-mode {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+.dock-panel.dark-mode .dock-item {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5),
+    0 2px 4px -1px rgba(0, 0, 0, 0.4);
+}
+
+.dock-panel.dark-mode .dock-icon {
+  color: var(--text-color);
+}
+
+.dock-panel.dark-mode .dock-label {
+  background-color: var(--bg-color);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+}
+
+/* Settings dropdown styles */
+.services-menu {
+  position: fixed;
+  background-color: var(--bg-color);
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  padding: 16px;
+  min-width: 220px;
+  z-index: 1001;
+  border: 1px solid var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  user-select: none;
+}
+
+.service-option {
+  padding: 8px 0;
+}
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  width: 100%;
+  border: none;
+  border-radius: 8px;
+  background: var(--hover-bg);
+  color: var(--hover-text);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.language-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.language-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.language-option:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.language-option.active {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.language-option i.fa-check {
+  color: var(--primary-color);
+}
+
+/* Dark mode overrides */
+.dark-mode .services-menu {
+  background-color: #2a2a2a;
+  border-color: #444;
+  color: var(--text-color);
+}
+
+.dark-mode .theme-toggle-btn {
+  background: linear-gradient(90deg, #3a3a3a 0%, #1a1a1a 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .language-option:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}

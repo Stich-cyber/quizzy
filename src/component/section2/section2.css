@@ -1,0 +1,111 @@
+z:root {
+    --section-bg-dark: var(--body-bg);
+    --card-bg-light: #fffbe6; 
+    --card-bg-dark: #1a1a1a;
+    --card-shadow-light: var(--shadow-color);
+    --card-shadow-dark: var(--shadow-color);
+    --text-color-light: var(--title-color-light);
+    --text-color-dark: var(--title-color-dark);
+    --subtitle-color-light: var(--subtitle-color-light);
+    --subtitle-color-dark: var(--subtitle-color-dark);
+  }
+  
+  .section2 {
+    background: var(--section-bg-light);
+    color: var(--text-color-light);
+    padding: 60px 20px;
+    text-align: center;
+    transition: background 0.3s ease, color 0.3s ease;
+  }
+  
+  .dark-mode .section2 {
+    background: var(--section-bg-dark);
+    color: var(--text-color-dark);
+  }
+  
+  .section2-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--title-color-light);
+  }
+  
+  .dark-mode .section2-title {
+    color: var(--title-color-dark);
+  }
+  
+  .section2-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: var(--subtitle-color-light);
+  }
+  
+  .dark-mode .section2-subtitle {
+    color: var(--subtitle-color-dark);
+  }
+  
+  .cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+  
+  .card {
+    background: var(--card-bg-light);
+    color: var(--text-color-light);
+    border-radius: 12px;
+    padding: 30px 20px;
+    width: 280px;
+    box-shadow: 0 10px 30px var(--card-shadow-light);
+    transition: all 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px var(--card-shadow-light);
+  }
+  
+  .dark-mode .card {
+    background: var(--card-bg-dark);
+    color: var(--text-color-dark);
+    box-shadow: 0 10px 30px var(--card-shadow-dark);
+  }
+  
+  .dark-mode .card:hover {
+    box-shadow: 0 12px 35px var(--card-shadow-dark);
+  }
+  
+  .card i {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: var(--hover-bg);
+  }
+  
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .card-description {
+    font-size: 1rem;
+    color: var(--subtitle-color-light);
+  }
+  
+  .dark-mode .card-description {
+    color: var(--subtitle-color-dark);
+  }
+  
+  .section2-image-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .section2-image {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+  

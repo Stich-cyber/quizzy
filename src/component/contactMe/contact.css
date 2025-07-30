@@ -1,0 +1,144 @@
+.contact-page {
+  padding-left: 20px;
+  padding-right: 20px;
+  display: flex;
+  margin-bottom: 100px;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  flex-direction: column;
+}
+.contact-form h3 {
+  text-align: center;
+  font-size: 1.5rem;  
+  color: var(--title-color);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid var(--border-color);
+  border-radius: 10px;
+  font-size: 1rem;
+  background-color: transparent;
+  color: var(--text-color);
+  transition: border-color 0.3s ease;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.contact-form button {
+  width: 100%;
+  background: linear-gradient(90deg, #ffb400 0%, #ff6a00 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 180, 0, 0.4);
+}
+.social-media {
+  text-align: center;
+}
+
+.social-media h3 {
+  font-size: 1.5rem;
+  color: var(--title-color);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.social-icons a {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: translateY(-5px) scale(1.1);
+}
+
+.icon-facebook {
+  background-color: #3b5998;
+}
+.icon-twitter {
+  background-color: #1da1f2;
+}
+.icon-instagram {
+  background: linear-gradient(
+    45deg,
+    #405de6,
+    #5851db,
+    #833ab4,
+    #c13584,
+    #e1306c,
+    #fd1d1d
+  );
+}
+.icon-linkedin {
+  background-color: #0077b5;
+}
+.dark-mode .about-container {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .contact-form button {
+  background: linear-gradient(90deg, #3a3a3a 0%, #1a1a1a 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  color: var(--hover-text);
+}
+@media (max-width: 768px) {
+  .about-description {
+    font-size: 1rem;
+  }
+
+  .contact-form h3,
+  .social-media h3 {
+    font-size: 1.3rem;
+  }
+
+  .social-icons {
+    gap: 15px;
+  }
+
+  .social-icons a {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-form input,
+  .contact-form textarea {
+    padding: 10px 12px;
+  }
+
+  .contact-form button {
+    padding: 12px;
+  }
+}

@@ -1,0 +1,56 @@
+:root {
+  --body-bg-light: #fff9ec;
+  --body-bg-dark: #121212;
+  --text-color-light: #333;
+  --text-color-dark: #f0f0f0;
+
+  --title-color-light: #333333;
+  --subtitle-color-light: #666666;
+  --title-color-dark: #f0f0f0;
+  --subtitle-color-dark: #bbbbbb;
+
+  --hover-bg-light: linear-gradient(90deg, #ffb400 0%, #ff6a00 100%);
+  --hover-bg-dark: linear-gradient(90deg, #555 0%, #222 100%);
+  --hover-text-light: #fff;
+  --hover-text-dark: #fff;
+
+  --bg-color-light: #fffbe6;
+  --bg-color-dark: #1a1a1a;
+
+  --border-color-light: #ffe082;
+  --border-color-dark: #444;
+
+  --shadow-color-light: rgba(255, 180, 0, 0.18);
+  --shadow-color-dark: rgba(0, 0, 0, 0.3);
+}
+
+body {
+  background: var(--body-bg-light);
+  color: var(--text-color-light);
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Inter', 'Arial', sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background: var(--body-bg-dark);
+  color: var(--text-color-dark);
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+body:not(.dark-mode) {
+  background: linear-gradient(135deg, #fff9ec 0%, #ffe9c8 100%);
+  background-size: 200% 200%;
+  animation: gradientMove 15s ease infinite;
+}
