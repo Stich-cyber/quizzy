@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./animal.css";
 import { animalQuestions } from "./animalBase.js";
 
-function Animal(){ 
+function Animal() {
   const [quizType, setQuizType] = useState(null);
   const [questionCount, setQuestionCount] = useState(10);
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -19,14 +19,16 @@ function Animal(){
       .slice(0, Math.min(questionCount, 20));
     setFilteredQuestions(questions);
   };
+
   const handleAnswerSelect = (answer) => {
     setSelectedAnswer(answer);
   };
+
   const handleNextQuestion = () => {
     if (
       selectedAnswer === filteredQuestions[currentQuestionIndex].correct_answer
     ) {
-      setScore(prevScore => prevScore + 1);
+      setScore(score + 1);
     }
 
     if (currentQuestionIndex < filteredQuestions.length - 1) {
@@ -36,6 +38,7 @@ function Animal(){
       setShowScore(true);
     }
   };
+
   const handleRestart = () => {
     setQuizType(null);
     setQuestionCount(10);
@@ -44,6 +47,7 @@ function Animal(){
     setScore(0);
     setShowScore(false);
   };
+
   if (!quizType) {
     return (
       <div className="quiz-container">
@@ -73,6 +77,7 @@ function Animal(){
       </div>
     );
   }
+
   if (filteredQuestions.length === 0) {
     return (
       <div className="quiz-container">
@@ -82,6 +87,7 @@ function Animal(){
       </div>
     );
   }
+
   if (!showScore) {
     const currentQuestion = filteredQuestions[currentQuestionIndex];
 
@@ -151,6 +157,7 @@ function Animal(){
       </div>
     );
   }
+
   return (
     <div className="quiz-container">
       <h1>Quiz Completed!</h1>
@@ -165,4 +172,5 @@ function Animal(){
     </div>
   );
 }
+
 export default Animal;
