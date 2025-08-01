@@ -145,21 +145,22 @@ export default function Dock({
         role="toolbar"
         aria-label="Application dock"
       >
-        {items.map((item, index) => (
-          <DockItem
-            key={index}
-            onClick={item.onClick}
-            className={item.className}
-            mouseX={mouseX}
-            spring={spring}
-            distance={distance}
-            magnification={magnification}
-            baseItemSize={baseItemSize}
-          >
-            <DockIcon>{item.icon}</DockIcon>
-            <DockLabel>{item.label}</DockLabel>
-          </DockItem>
-        ))}
+{items.map((item, index) => (
+  <DockItem
+    key={index}
+    onClick={item.onClick}
+    className={item.className}
+    mouseX={mouseX}
+    spring={spring}
+    distance={distance}
+    magnification={magnification}
+    baseItemSize={baseItemSize}
+    ref={item.ref}
+  >
+    <DockIcon>{item.icon}</DockIcon>
+    <DockLabel>{item.label}</DockLabel>
+  </DockItem>
+))}
       </motion.div>
     </motion.div>
   );

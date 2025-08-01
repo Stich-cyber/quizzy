@@ -16,6 +16,7 @@ function Header({ language, setLanguage, darkMode, setDarkMode }) {
   const [isCursorOverFooter, setIsCursorOverFooter] = useState(false);
   const footerRef = useRef(null);
 
+  // Apply dark mode class to document
   useEffect(() => {
     if (darkMode) {
       document.documentElement.classList.add("dark-mode");
@@ -25,6 +26,8 @@ function Header({ language, setLanguage, darkMode, setDarkMode }) {
       document.body.classList.remove("dark-mode");
     }
   }, [darkMode]);
+
+  // Close settings dropdown when clicking outside
   useEffect(() => {
     function handleClickOutside(event) {
       if (settingsRef.current && !settingsRef.current.contains(event.target)) {
@@ -37,6 +40,7 @@ function Header({ language, setLanguage, darkMode, setDarkMode }) {
     };
   }, []);
 
+  // Handle scroll and mouse position effects
   useEffect(() => {
     const footerElement = document.querySelector("footer.footer");
     footerRef.current = footerElement;
@@ -69,14 +73,24 @@ function Header({ language, setLanguage, darkMode, setDarkMode }) {
       }
     }
 
-    window.addEventListener("click", handleScroll);
-    window.addEventListener("click", handleMouseMove);
+    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("mousemove", handleMouseMove);
 
     return () => {
-      window.removeEventListener("click", handleScroll);
-      window.removeEventListener("click", handleMouseMove);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousemove", handleMouseMove);
     };
   }, [isCursorOverHeader]);
+
+  // Connect settings dock item ref to DOM element
+  useEffect(() => {
+    if (settingsDockItemRef.current) return;
+    const element = document.querySelector(".settings-dock-item");
+    if (element) {
+      settingsDockItemRef.current = element;
+    }
+  }, [showSettingsDropdown]);
+
   function onHeaderMouseEnter() {
     setIsCursorOverHeader(true);
     setIsOpaque(false);
@@ -137,9 +151,6 @@ function Header({ language, setLanguage, darkMode, setDarkMode }) {
 
   return (
     <header
-      className={`header ${darkMode ? "dark-mode" : ""} ${
-        isOpaque ? "opacity" : ""
-      }`}
       onMouseEnter={onHeaderMouseEnter}
       onMouseLeave={onHeaderMouseLeave}
     >
@@ -148,18 +159,18 @@ function Header({ language, setLanguage, darkMode, setDarkMode }) {
         {showSettingsDropdown && (
           <motion.div
             className="services-menu"
-            ref={settingsRef}
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{ duration: 0.3 }}
             style={{
               position: "fixed",
               top: settingsDockItemRef.current
-                ? settingsDockItemRef.current.getBoundingClientRect().top - 10
+                ? `${
+                    settingsDockItemRef.current.getBoundingClientRect().top +
+                    -130
+                  }px`
                 : "auto",
               left: settingsDockItemRef.current
-                ? settingsDockItemRef.current.getBoundingClientRect().left
+                ? `${
+                    settingsDockItemRef.current.getBoundingClientRect().left
+                  }px`
                 : "auto",
               zIndex: 1001,
             }}

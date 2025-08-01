@@ -119,7 +119,13 @@ function Animal() {
                     }`}
                     onClick={() => handleAnswerSelect(option)}
                   >
-                    {option}
+                    <input
+                      type="radio"
+                      name="animal-option"
+                      checked={selectedAnswer === option}
+                      onChange={() => handleAnswerSelect(option)}
+                    />
+                    <span>{option}</span>
                   </button>
                 ))}
             </div>
