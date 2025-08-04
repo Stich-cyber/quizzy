@@ -1,12 +1,12 @@
 import "./category.css";
 import { useNavigate } from "react-router-dom";
-import Sport from "../sportQuestions/sport";
-import Music from "../musicQuestions/music";
-import GeneralQuestions from "../generalQuestions/general";
-import Geography from "../geographyQuestions/geography";
-import Animal from "../animalQuestions/animal";
-  import Art from "../artQuestions/art";
-  import React, { useState } from "react";
+import {Sport} from "../sportQuestions/sport";
+import { Music } from "../musicQuestions/music";
+import { Geography } from "../geographyQuestions/geography";
+import { General } from "../generalQuestions/general";
+import { Animal } from "../animalQuestions/animal";
+import { Art } from "../artQuestions/art";
+import React, { useState } from "react";
   function Category({ language, darkMode }) {
     const [selectedComponent, setSelectedComponent] = useState(null);
 
@@ -29,7 +29,7 @@ import Animal from "../animalQuestions/animal";
       name: language === "en" ? "General Knowledge" : "Общие вопросы",
       color: "#ffcccc",
       icon: <i className="fa-solid fa-web-awesome"></i>,
-      component: GeneralQuestions,
+      component: General,
       route: "/general",
       
     },
