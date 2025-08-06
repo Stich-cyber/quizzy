@@ -11,6 +11,7 @@
 }
 .title {
   font-size: 56px;
+  text-align: center;
   color: var(--title-color-light);
 }
 .title-p {
@@ -49,4 +50,9 @@
   background: linear-gradient(90deg, #3a3a3a 0%, #1a1a1a 100%);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   color: var(--hover-text);
+}
+@media (max-width: 500px){
+ .title{
+  font-size: 36px;
+ }
 }
